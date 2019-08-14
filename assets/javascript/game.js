@@ -3,22 +3,26 @@ const game = {
     chosenOpponent: "",
 
     fighters: {
-        mage: {
-            hp: 105,
-            atk: 10,
-            increase: 10,
-        },
-        rogue: {
-            hp: 120,
-            atk: 14,
-            increase: 8,
-        },
         warrior: {
+            name: "warrior",
             hp: 180,
             atk: 20,
             increase: 6,
         },
+        rogue: {
+            name: "rogue",
+            hp: 120,
+            atk: 14,
+            increase: 8,
+        },
+        mage: {
+            name: "mage",
+            hp: 105,
+            atk: 10,
+            increase: 10,
+        },
         summoner: {
+            name: "summoner",
             hp: 110,
             atk: 16,
             increase: 12,
@@ -61,7 +65,8 @@ const game = {
     },
 
     updates: function () {
-        
+        $(`#${this.chosenFighter.name}Hp`).text(`hp: ${this.chosenFighter.hp}`);
+        $(`#${this.chosenOpponent.name}Hp`).text(`hp: ${this.chosenOpponent.hp}`);
     },
 };
 
