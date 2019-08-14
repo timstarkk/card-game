@@ -42,18 +42,29 @@ const game = {
     },
 
     chooseFighter: function (e) {
-        game.chosenFighter = game.fighters[e.target.id];
-        console.log(game.chosenFighter);
-    }
+        if (this.chosenFighter === "") {
+            this.chosenFighter = this.fighters[e.target.id];
+            console.log(this.chosenFighter);
+        } else if (this.chosenOpponent === "") {
+            this.chosenOpponent = this.fighters[e.target.id];
+            console.log(this.chosenOpponent);
+        }
+    },
+
+    fight: function () {
+        // WILL NEED TO CHANGE THIS TO RUN ON "ATTACK" BUTTON CLICK!!!! ----------------
+        if (this.chosenFighter !== "" && this.chosenOpponent !== "") {
+            loadFirstFighter = new game.fightFunction(game.chosenFighter);
+            loadFirstFighter(game.chosenOpponent);
+        }
+    },
 };
 
-fightMage: new game.fightFunction(game.fighters.mage);
-fightRogue: new game.fightFunction(game.fighters.rogue);
-fightWarrior: new game.fightFunction(game.fighters.warrior);
-fightSummoner: new game.fightFunction(game.fighters.summoner);
+theFight: new game.fightFunction(game.chosenFighter);
 
 
 
 $(".fighter").on("click", function (e) {
     game.chooseFighter(e);
+    game.fight();
 });
