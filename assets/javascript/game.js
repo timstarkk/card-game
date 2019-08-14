@@ -59,6 +59,10 @@ const game = {
             loadFirstFighter(game.chosenOpponent);
         }
     },
+
+    updates: function () {
+        
+    },
 };
 
 
@@ -68,4 +72,5 @@ $(".fighter").on("click", function (e) {
 
 $("#attack").on("click", function (e) {
     game.fight();
+    game.updates();
 });
