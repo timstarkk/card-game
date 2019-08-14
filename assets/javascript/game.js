@@ -29,6 +29,21 @@ const game = {
         }
     },
 
+    chooseFighters: function (e) {
+        if (this.chosenFighter === "") {
+            this.chosenFighter = this.fighters[e.target.id];
+            console.log(this.chosenFighter);
+        } else if (this.chosenOpponent === "") {
+            this.chosenOpponent = this.fighters[e.target.id];
+            console.log(this.chosenOpponent);
+        }
+    },
+
+    moveFighters: function () {
+        $('#battleground').append($(`#${this.chosenFighter.name}`));
+        $('#battleground').append($(`#${this.chosenOpponent.name}`));
+    },
+
     fightFunction: function (fighter1) {
         const fight = function (fighter2) {
             fighter2.hp = fighter2.hp - fighter1.atk;
@@ -47,16 +62,6 @@ const game = {
         return fight;
     },
 
-    chooseFighter: function (e) {
-        if (this.chosenFighter === "") {
-            this.chosenFighter = this.fighters[e.target.id];
-            console.log(this.chosenFighter);
-        } else if (this.chosenOpponent === "") {
-            this.chosenOpponent = this.fighters[e.target.id];
-            console.log(this.chosenOpponent);
-        }
-    },
-
     fight: function () {
         if (this.chosenFighter !== "" && this.chosenOpponent !== "") {
             loadFirstFighter = new game.fightFunction(game.chosenFighter);
@@ -72,7 +77,8 @@ const game = {
 
 
 $(".fighter").on("click", function (e) {
-    game.chooseFighter(e);
+    game.chooseFighters(e);
+    game.moveFighters();
 });
 
 $("#attack").on("click", function (e) {
