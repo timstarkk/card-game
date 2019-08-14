@@ -27,10 +27,12 @@ const game = {
 
     fightFunction: function (fighter1) {
         const fight = function (fighter2) {
-            fighter1.hp = fighter1.hp - fighter2.atk;
             fighter2.hp = fighter2.hp - fighter1.atk;
             fighter1.atk += fighter1.increase;
-            fighter2.atk += fighter2.increase;
+            if (fighter2.hp > 0) {
+                fighter1.hp = fighter1.hp - fighter2.atk;
+                fighter2.atk += fighter2.increase;
+            };
             console.log(`hit points:`);
             console.log(fighter1.hp);
             console.log(fighter2.hp);
@@ -52,7 +54,6 @@ const game = {
     },
 
     fight: function () {
-        // WILL NEED TO CHANGE THIS TO RUN ON "ATTACK" BUTTON CLICK!!!! ----------------
         if (this.chosenFighter !== "" && this.chosenOpponent !== "") {
             loadFirstFighter = new game.fightFunction(game.chosenFighter);
             loadFirstFighter(game.chosenOpponent);
