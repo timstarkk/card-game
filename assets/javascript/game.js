@@ -60,11 +60,11 @@ const game = {
     },
 };
 
-theFight: new game.fightFunction(game.chosenFighter);
-
-
 
 $(".fighter").on("click", function (e) {
     game.chooseFighter(e);
+});
+
+$("#attack").on("click", function (e) {
     game.fight();
 });
