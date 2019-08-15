@@ -77,6 +77,10 @@ const game = {
 
 
 $(".fighter").on("click", function (e) {
+    // x = $('.fighterSpot').offset().left;
+    // y = $('.fighterSpot').offset().top;
+    // console.log($('.fighterSpot').offset().left);
+    // console.log($('.fighterSpot').offset().top);
     game.chooseFighters(e);
     game.moveFighters();
 });
