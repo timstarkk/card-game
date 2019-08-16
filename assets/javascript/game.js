@@ -1,6 +1,10 @@
+let x;
+let y;
+
 const game = {
     chosenFighter: "",
     chosenOpponent: "",
+    fighterInPosition: false,
 
     fighters: {
         warrior: {
@@ -40,9 +44,31 @@ const game = {
     },
 
     moveFighters: function () {
-        $('#battleground').append($(`#${this.chosenFighter.name}`));
-        $('#battleground').append($(`#${this.chosenOpponent.name}`));
+        $(".fighter").addClass('panelClick');
+        if (this.fighterInPosition === false) {
+            x = $('#fighterSpot').position().left;
+            y = $('#fighterSpot').position().top;
+            var xi = $(`#${this.chosenFighter.name}`).position().left;
+            var yi = $(`#${this.chosenFighter.name}`).position().top;
+            $(`#${this.chosenFighter.name}`).animate({
+                left: x,
+                top: y,
+            })
+            this.fighterInPosition = true;
+        } else {
+            x = $('#opponentSpot').position().left;
+            y = $('#opponentSpot').position().top;
+            var xi = $(`#${this.chosenOpponent.name}`).position().left;
+            var yi = $(`#${this.chosenOpponent.name}`).position().top;
+            $(`#${this.chosenOpponent.name}`).animate({
+                left: x,
+                top: y,
+            })
+        }
     },
+
+    // removePanelClickCss: function () {
+    // },
 
     fightFunction: function (fighter1) {
         const fight = function (fighter2) {
@@ -62,6 +88,18 @@ const game = {
         return fight;
     },
 
+    winLossHandler: function () {
+        if (this.chosenOpponent.hp <= 0) {
+            $(".fighter").removeClass('panelClick');
+            $(`#${this.chosenOpponent.name}`).addClass('hidden');
+            console.log(this.chosenOpponent);
+            this.chosenOpponent = "";
+        } else if (this.chosenFighter.hp <= 0) {
+            $(".fighter").removeClass('panelClick');
+            alert('you lose!')
+        }
+    },
+
     fight: function () {
         if (this.chosenFighter !== "" && this.chosenOpponent !== "") {
             loadFirstFighter = new game.fightFunction(game.chosenFighter);
@@ -77,15 +115,13 @@ const game = {
 
 
 $(".fighter").on("click", function (e) {
-    // x = $('.fighterSpot').offset().left;
-    // y = $('.fighterSpot').offset().top;
-    // console.log($('.fighterSpot').offset().left);
-    // console.log($('.fighterSpot').offset().top);
     game.chooseFighters(e);
     game.moveFighters();
+    // game.removePanelClickCss();
 });
 
 $("#attack").on("click", function (e) {
     game.fight();
     game.updates();
+    game.winLossHandler();
 });

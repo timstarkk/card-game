@@ -1,6 +1,4 @@
 #fighterBox {
-    height: 304px;
-    max-height: 304px;
     position: relative;
 }
 
@@ -8,32 +6,118 @@
     height: 300px;
     max-height: 300px;
     position: absolute;
-    -webkit-transition: all 3.5s ease-in-out;
-    -moz-transition: all 3.5s ease-in-out;
-    -ms-transition: all 3.5s ease-in-out;
-    -o-transition: all 3.5s ease-in-out;
-    transition: all 3.5s ease-in-out;   
 }
 
+.panelClick {
+    -webkit-transition: all 1.5s ease-in-out;
+    -moz-transition: all 1.5s ease-in-out;
+    -ms-transition: all 1.5s ease-in-out;
+    -o-transition: all 1.5s ease-in-out;
+    transition: all 1.5s ease-in-out;
+}
+
+#warrior {
+    z-index: 20;
+}
 #rogue {
     left: 283px;
+    z-index: 15;
 }
 
 #mage {
     left: 566px;
+    z-index: 10;
 }
 
 #summoner {
     left: 849px;
+    z-index: 5;
 }
 
-#battleground {
-    height: 304px;
-    max-height: 304px;
+.blank {
+    height: 302px;
+    max-height: 302px;
+}
+
+.battlefield {
+    height: 300px;
+    max-height: 300px;
 }
 
 .field {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+@media only screen  
+  and (max-width: 1199px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+    #rogue {
+        left: 238px;
+    }
+    
+    #mage {
+        left: 476px;
+    }
+    
+    #summoner {
+        left: 714px;
+    }
+}
+
+@media only screen  
+  and (max-width: 991px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+    #rogue {
+        left: 178px;
+    }
+    
+    #mage {
+        left: 356px;
+    }
+    
+    #summoner {
+        left: 534px;
+    }
+}
+
+@media only screen  
+  and (max-width: 767px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+    #rogue {
+        left: 133px;
+    }
+    
+    #mage {
+        left: 266px;
+    }
+    
+    #summoner {
+        left: 399px;
+    }
+}
+
+@media only screen  
+  and (max-width: 575px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+    #rogue {
+        left: 122px;
+    }
+    
+    #mage {
+        left: 244px;
+    }
+    
+    #summoner {
+        left: 366px;
+    }
 }
