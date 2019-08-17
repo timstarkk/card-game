@@ -9,27 +9,31 @@ const game = {
     fighters: {
         warrior: {
             name: "warrior",
-            hp: 180,
-            atk: 20,
-            increase: 6,
+            hp: 118,
+            atk: 12,
+            counter: 12,
+            increase: 12,
         },
         rogue: {
             name: "rogue",
-            hp: 120,
-            atk: 14,
-            increase: 8,
+            hp: 112,
+            atk: 13,
+            counter: 26,
+            increase: 13,
         },
         mage: {
             name: "mage",
             hp: 105,
-            atk: 10,
-            increase: 10,
+            atk: 11,
+            counter: 20,
+            increase: 11,
         },
         summoner: {
             name: "summoner",
-            hp: 110,
+            hp: 99,
             atk: 16,
-            increase: 12,
+            counter: 29,
+            increase: 16,
         }
     },
 
@@ -72,18 +76,11 @@ const game = {
 
     fightFunction: function (fighter1) {
         const fight = function (fighter2) {
-            fighter2.hp = fighter2.hp - fighter1.atk;
+            fighter2.hp -= fighter1.atk;
             fighter1.atk += fighter1.increase;
             if (fighter2.hp > 0) {
-                fighter1.hp = fighter1.hp - fighter2.atk;
-                fighter2.atk += fighter2.increase;
+                fighter1.hp = fighter1.hp - fighter2.counter;
             };
-            console.log(`hit points:`);
-            console.log(fighter1.hp);
-            console.log(fighter2.hp);
-            console.log(`attack points:`);
-            console.log(fighter1.atk);
-            console.log(fighter2.atk);
         };
         return fight;
     },
