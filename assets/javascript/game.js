@@ -5,6 +5,7 @@ const game = {
     chosenFighter: "",
     chosenOpponent: "",
     fighterInPosition: false,
+    enemiesDefeated: 0,
 
     fighters: {
         warrior: {

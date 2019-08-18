@@ -12,34 +12,41 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <style>
-        .row {
+        /* .row {
             border: 2px solid red;
-            /* margin-top: 5px;
-            margin-bottom: 5px; */
+            margin-top: 5px;
+            margin-bottom: 5px;
         }
 
         .row>div {
             border: 2px solid green;
-            /* margin-top: 5px;
-            margin-bottom: 5px; */
+            margin-top: 5px;
+            margin-bottom: 5px;
         }
 
-        /* .fighter:nth-child(1) {
+        .fighter:nth-child(1) {
             border: 3px solid purple;
-        } */
+        }
 
         .container>div {
             border: 2px solid blue;
-            /* margin-top: 5px;
-            margin-bottom: 5px; */
-        }
+            margin-top: 5px;
+            margin-bottom: 5px;
+        } */
     </style>
 </head>
 
 <body class="container-fluid">
 
     <div class="row">
-        <div class="container ">
+        <div class="container header">
+            <div class="row headerBackground">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container main">
             <div class="row" id="fighterBox">
                 <div class="col-3 panel fighter chosenFighter" id="warrior">
                     <h4>Warrior</h4>
@@ -58,14 +65,17 @@
                     <p id="summonerHp">hp: 99</p>
                 </div>
                 <div class="col-12 blank"></div>
-                <div class="col-1" id="spacer"></div>
-                <div class="col-3 battlefield" id="fighterSpot">
+                <div class="col-1 theBottom" id="spacer"></div>
+                <div class="col-3 battlefield theBottom location" id="fighterSpot">
+                    FIGHTER
                 </div>
-                <div class="col-4 field battlefield">
+                <div class="col-4 field battlefield theBottom">
                     <button id="attack">Attack!</button>
                 </div>
-                <div class="col-3 battlefield" id="opponentSpot">
+                <div class="col-3 battlefield theBottom location" id="opponentSpot">
+                    CHALLENGER
                 </div>
+                <div class="col-1 theBottom"></div>
             </div>
         </div>
     </div>
