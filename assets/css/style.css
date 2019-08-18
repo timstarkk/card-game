@@ -5,18 +5,16 @@ body {
 .header {
     background: white;
     border: 3px solid silver;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 2px;
 }
 
 .headerBackground {
-    height: 120px;
-    max-height: 120px;
+    height: 90px;
+    max-height: 90px;
     background: url('../images/FFlogo.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto 120px;
-
 }
 
 #fighterBox {
@@ -110,10 +108,11 @@ p {
     align-items: center;
     border: 2px solid silver;
     background: white;
+    margin-bottom: 30px;
 }
 
 .theBottom {
-    margin-top: 10px;
+    margin-top: 2px;
 }
 
 .field {
@@ -124,6 +123,12 @@ p {
 
 .hidden {
     visibility: hidden;
+}
+
+.btn {
+    font-weight: 500;
+    font-size: 22px;
+    width: 140px;
 }
 
 @media only screen  
