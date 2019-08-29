@@ -91,7 +91,9 @@ const game = {
             this.chosenOpponent = "";
         } else if (this.chosenFighter.hp <= 0) {
             $(".fighter").removeClass('panelClick');
-            alert('you lose!')
+            $('#behindFighterLocation').html('<h1>YOU LOSE!</h1>')
+            $('#behindFighterLocation').append('<button>')
+            $("#attack").addClass('hidden');
         }
     },
 
