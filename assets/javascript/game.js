@@ -72,9 +72,6 @@ const game = {
         }
     },
 
-    // removePanelClickCss: function () {
-    // },
-
     fightFunction: function (fighter1) {
         const fight = function (fighter2) {
             fighter2.hp -= fighter1.atk;
