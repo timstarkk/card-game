@@ -85,15 +85,25 @@ const game = {
 
     winLossHandler: function () {
         if (this.chosenOpponent.hp <= 0) {
-            $(".fighter").removeClass('panelClick');
-            $(`#${this.chosenOpponent.name}`).addClass('hidden');
-            console.log(this.chosenOpponent);
-            this.chosenOpponent = "";
+            this.enemiesDefeated++;
+            if (this.enemiesDefeated === 3) {
+                $('#endRow').removeClass('hidden');
+                $('#endRow').prepend('<div class="col-12"><div class="finalScreen"><h1>YOU WIN!</h1></div></div>')
+                $("#attack").addClass('hidden');
+                $(".fighter").removeClass('panelClick');
+                $(`#${this.chosenOpponent.name}`).addClass('hidden');
+                this.chosenOpponent = "";
+            } else {
+                $(".fighter").removeClass('panelClick');
+                $(`#${this.chosenOpponent.name}`).addClass('hidden');
+                this.chosenOpponent = "";
+            }
         } else if (this.chosenFighter.hp <= 0) {
-            $(".fighter").removeClass('panelClick');
-            $('#behindFighterLocation').html('<h1>YOU LOSE!</h1>')
-            $('#behindFighterLocation').append('<button>')
+            $('#endRow').removeClass('hidden');
+            $('#endRow').prepend('<div class="col-12"><div class="finalScreen"><h1>YOU LOSE!</h1></div></div>')
             $("#attack").addClass('hidden');
+            $(`#${this.chosenFighter.name}`).addClass('hidden');
+            this.chooseFighter = "";
         }
     },
 
@@ -108,6 +118,10 @@ const game = {
         $(`#${this.chosenFighter.name}Hp`).text(`hp: ${this.chosenFighter.hp}`);
         $(`#${this.chosenOpponent.name}Hp`).text(`hp: ${this.chosenOpponent.hp}`);
     },
+
+    reset: function () {
+        document.location.reload()
+    },
 };
 
 
@@ -121,4 +135,8 @@ $("#attack").on("click", function (e) {
     game.fight();
     game.updates();
     game.winLossHandler();
+});
+
+$("#playAgain").on("click", function () {
+    game.reset();
 });

@@ -94,7 +94,6 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 48px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: black;
 }
@@ -135,6 +134,16 @@ p {
     font-weight: 500;
     font-size: 22px;
     width: 140px;
+}
+
+#endRow {
+    width: 100%;
+}
+
+.finalScreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media only screen  
