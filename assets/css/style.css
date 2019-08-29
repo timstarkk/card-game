@@ -91,6 +91,12 @@ p {
 .blank {
     height: 302px;
     max-height: 302px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
 }
 
 .battlefield {
