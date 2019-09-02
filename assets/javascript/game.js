@@ -42,7 +42,7 @@ const game = {
         if (this.chosenFighter === "") {
             this.chosenFighter = this.fighters[e.target.id];
             console.log(this.chosenFighter);
-        } else if (this.chosenOpponent === "") {
+        } else if (this.chosenOpponent === "" && this.fighters[e.target.id] !== this.chosenFighter) {
             this.chosenOpponent = this.fighters[e.target.id];
             console.log(this.chosenOpponent);
         }
